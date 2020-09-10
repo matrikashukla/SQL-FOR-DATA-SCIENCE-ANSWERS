@@ -1,0 +1,136 @@
+Question 1:
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names to write accurate queries and get the appropriate answers.
+
+Run Query: Find all the tracks that have a length of 5,000,000 milliseconds or more.
+ANSWER :
+Select 
+TrackID,
+Milliseconds
+From Tracks
+Where Milliseconds >= '5000000';
+
+How many tracks are returned?
+ANSWER 1 : 2
+
+Question 2
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names to write accurate queries and get the appropriate answers.
+
+ANSWER:
+Select 
+InvoiceId,
+Total
+From Invoices
+Where Total BETWEEN 5 AND 15;
+
+Query :Find all the invoices whose total is between $5 and $15 dollars.
+ANSWER 2:168
+
+
+Question 3
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names to write accurate queries and get the appropriate answers.
+
+Run Query: Find all the customers from the following States: RJ, DF, AB, BC, CA, WA, NY.
+ANSWER :
+Select *
+From Customers
+Where State IN( 'RJ', 'DF', 'AB', 'BC', 'CA', 'WA', 'NY');
+
+
+What company does Jack Smith work for?
+Answer 3 :Microsoft Corp
+
+
+Question 4
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names to write accurate queries and get the appropriate answers.
+
+Run Query: Find all the invoices for customer 56 and 58 where the total was between $1.00 and $5.00.
+ANSWER:
+Select *
+From Invoices
+Where CustomerId IN( 56 , 58) AND (Total BETWEEN 1 and 5);
+
+
++-----------+------------+---------------------+---------------------+--------------+--------------+----------------+-------------------+-------+
+| InvoiceId | CustomerId | InvoiceDate         | BillingAddress      | BillingCity  | BillingState | BillingCountry | BillingPostalCode | Total |
++-----------+------------+---------------------+---------------------+--------------+--------------+----------------+-------------------+-------+
+|       119 |         56 | 2010-06-12 00:00:00 | 307 Macacha Güemes  | Buenos Aires |         None | Argentina      | 1106              |  1.98 |
+|       142 |         56 | 2010-09-14 00:00:00 | 307 Macacha Güemes  | Buenos Aires |         None | Argentina      | 1106              |  3.96 |
+|       337 |         56 | 2013-01-28 00:00:00 | 307 Macacha Güemes  | Buenos Aires |         None | Argentina      | 1106              |  1.98 |
+|       120 |         58 | 2010-06-12 00:00:00 | 12,Community Centre | Delhi        |         None | India          | 110017            |  1.98 |
+|       315 |         58 | 2012-10-27 00:00:00 | 12,Community Centre | Delhi        |         None | India          | 110017            |  1.98 |
+|       338 |         58 | 2013-01-29 00:00:00 | 12,Community Centre | Delhi        |         None | India          | 110017            |  3.96 |
+|       412 |         58 | 2013-12-22 00:00:00 | 12,Community Centre | Delhi        |         None | India          | 110017            |  1.99 |
++-----------+------------+---------------------+---------------------+--------------+--------------+----------------+-------------------+-------+
+What was the invoice date for invoice ID 315?
+ANSWER 4 : 10-27-2012
+
+
+
+Question 5
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names to write accurate queries and get the appropriate answers.
+
+Run Query: Find all the tracks whose name starts with 'All'.
+ANSWER:
+Select *
+From Tracks
+Where Name Like 'All%';
+
+ANSWER 5 : 15
+
+
+Question 6
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names to write accurate queries and get the appropriate answers.
+
+Run Query: Find all the customer emails that start with "J" and are from gmail.com.
+ANSWER :
+Select *
+From Customers
+Where email like 'J%gmail.com';
+
+
+Enter the one email address returned (you will likely need to scroll to the right) below.
+ANSWER 6: jubarnett@gmail.com
+
+
+Question 7
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names to write accurate queries and get the appropriate answers.
+
+Run Query: Find all the invoices from the billing city Brasília, Edmonton, and Vancouver and sort in descending order by invoice ID.
+ANSWER :
+Select *
+From Invoices
+Where BillingCity IN( 'Brasília', 'Edmonton','Vancouver')
+Order By InvoiceId DESC;
+
+What is the total invoice amount of the first record returned? Enter the number below without a $ sign. Remember to sort in descending order to get the correct answer.
+ANSWER 7: 13.86
+
+
+Question 8
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names to write accurate queries and get the appropriate answers.
+
+Run Query: Show the number of orders placed by each customer (hint: this is found in the invoices table) and sort the result by the number of orders in descending order.
+ANSWER:
+Select CustomerId
+,Count(*) as D
+From Invoices
+Group By CustomerId
+Order By D DESC;
+
+What is the number of items placed for the 8th person on this list? Enter that number below.
+ANSWER 8 : 7
+
+
+Question 9
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram to familiarize yourself with the table and column names to write accurate queries and get the appropriate answers.
+
+Run Query: Find the albums with 12 or more tracks.
+ANSWER :
+Select AlbumId,Count(*) as nt
+From Tracks
+Group By AlbumId
+Having nt>=12;
+
+
+While the number of records returned is limited to 10, the query, if run correctly, will indicate how many total records there are. Enter that number below.
+ANSWER 9: 158
